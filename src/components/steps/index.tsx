@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import CodeDisplay from "@/components/codedisplay";
 
 interface Tab {
   id: string;
@@ -154,12 +153,12 @@ const InstallationGuide = () => {
               <span className="text-purple-400">{"{"}</span>
               {"\n  "}
               <span className="text-white">content:</span>
-              <span className="text-blue-400"> ["</span>
+              <span className="text-blue-400"> [&quot;</span>
               <span className="text-amber-500">
                 ./App.{"{(js, jsx, ts, tsx)}"}, ./&lt;custom
                 directory&gt;/&#42;&#42;/&#42;.{"{(js, jsx, ts, tsx)}"}
               </span>
-              <span className="text-blue-400">"],</span>
+              <span className="text-blue-400">&quot;],</span>
               {"\n  "}
               <span className="text-white">theme:</span>
               <span className="text-purple-400"> {"{"}</span>
@@ -236,11 +235,11 @@ const InstallationGuide = () => {
               {"\n    "}
               <span className="text-white">presets: </span>
               <span className="text-blue-400">{"["}</span>
-              <span className="text-amber-500">"babel-preset-expo"</span>
+              <span className="text-amber-500">&quot;babel-preset-expo&quot;</span>
               <span className="text-blue-400">{"]"}</span>,{"\n    "}
               <span className="text-white">presets: </span>
               <span className="text-blue-400">{"["}</span>
-              <span className="text-amber-500">"nativewind/babel"</span>
+              <span className="text-amber-500">&quot;nativewind/babel&quot;</span>
               <span className="text-blue-400">{"]"}</span>,{"\n  "}
               <span className="text-purple-400">{"};"}</span>
               {"\n"}
