@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Moon, Search } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,13 +18,13 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-200  ${
+      className={`fixed top-0 w-full z-50 transition-all duration-200 ${
         isScrolled
           ? "bg-black/95 backdrop-blur-sm border-b border-gray-800"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 bg-black">
+      <div className="mx-40 px-4 bg-black">
         <div className="flex items-center justify-between h-16">
           {/* Logo and Brand */}
           <div className="flex items-center space-x-8">
@@ -33,29 +34,47 @@ const Navbar = () => {
 
             {/* Navigation Links */}
             <div className="hidden md:flex space-x-6">
-              <a href="#" className="text-gray-300 hover:text-white transition">
+              <Link
+                href="/components"
+                className="text-gray-300 hover:text-white transition"
+              >
                 Components
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white transition">
+              </Link>
+              <Link
+                href="#"
+                className="text-gray-300 hover:text-white transition"
+              >
                 Templates
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white transition">
+              </Link>
+              <Link
+                href="#"
+                className="text-gray-300 hover:text-white transition"
+              >
                 Pricing
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white transition">
+              </Link>
+              <Link
+                href="#"
+                className="text-gray-300 hover:text-white transition"
+              >
                 Showcase
-              </a>
+              </Link>
             </div>
           </div>
 
           {/* Right side actions */}
           <div className="flex items-center space-x-4">
-            <a href="#" className="text-gray-300 hover:text-white transition">
+            <Link
+              href="#"
+              className="text-gray-300 hover:text-white transition"
+            >
               Discord
-            </a>
-            <a href="#" className="text-gray-300 hover:text-white transition">
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-300 hover:text-white transition"
+            >
               Twitter
-            </a>
+            </Link>
 
             {/* Theme toggle */}
             <button className="p-2 text-gray-300 hover:text-white transition">
@@ -64,7 +83,7 @@ const Navbar = () => {
 
             {/* Search */}
             <div className="relative">
-              <div className="flex items-center bg-gray-900 rounded-lg px-3 py-1.5">
+              <div className="flex items-center bg-black border border-gray-600 rounded-lg px-3 py-1.5">
                 <Search size={16} className="text-gray-400" />
                 <input
                   type="text"
