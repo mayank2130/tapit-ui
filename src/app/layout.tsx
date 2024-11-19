@@ -31,11 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
         <Navbar />
-
-        <div className="ml-40">
-          <ScrollComponents />
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );

@@ -1,11 +1,15 @@
+import ScrollComponents from "@/components/scroll-components";
 import UiComponents from "@/components/ui-components";
 import React from "react";
 
 const page = () => {
   return (
-    <>
-      <UiComponents />
-    </>
+    <main>
+      <div className="ml-40">
+        <ScrollComponents />
+        <UiComponents />
+      </div>
+    </main>
   );
 };
 

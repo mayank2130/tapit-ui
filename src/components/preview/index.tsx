@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn, tabsPreview } from "@/lib/utils";
 import TabsComponent from "../tabs-component";
 import { PhoneScreen } from "../phonescreen";
 
@@ -15,14 +15,7 @@ const tabs: Tab[] = [
   { id: "code", label: "Code" },
 ];
 
-const tabsPreview = [
-  { id: "explore", label: "Explore" },
-  { id: "holdings", label: "Holdings" },
-  { id: "positions", label: "Positions" },
-  { id: "orders", label: "Stocks" },
-  { id: "stocks", label: "Equity" },
-  { id: "waitlist", label: "ETFs" },
-];
+
 
 const Preview = () => {
   const [activeTab, setActiveTab] = useState<string>("preview");

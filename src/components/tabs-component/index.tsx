@@ -11,7 +11,7 @@ interface TabsProps {
   onChange?: (tabId: string) => void;
 }
 
-const Tabs: React.FC<TabsProps> = ({ tabs, defaultActiveTab, onChange }) => {
+const TabsComponent: React.FC<TabsProps> = ({ tabs, defaultActiveTab, onChange }) => {
   const [activeTab, setActiveTab] = useState(defaultActiveTab || tabs[0]?.id);
 
   const handleTabClick = (tabId: string) => {
@@ -42,4 +42,4 @@ const Tabs: React.FC<TabsProps> = ({ tabs, defaultActiveTab, onChange }) => {
   );
 };
 
-export default Tabs;
+export default TabsComponent;
