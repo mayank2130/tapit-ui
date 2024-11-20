@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { cn, tabsPreview } from "@/lib/utils";
 import TabsComponent from "../tabs-component";
 import { PhoneScreen } from "../phonescreen";
+import { Cards } from "../card-component";
 
 interface Tab {
   id: string;
@@ -16,8 +17,8 @@ const tabs: Tab[] = [
 ];
 
 
-
 const Preview = () => {
+
   const [activeTab, setActiveTab] = useState<string>("preview");
 
   return (
@@ -51,13 +52,14 @@ const Preview = () => {
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gray-800" />
 
-        <div className="border flex items-center justify-center bg-[#101010] border-[#1c1a1a55]">
+        <div className="border flex items-center justify-center bg-[#101010] border-[#1c1a1a55] ">
           <PhoneScreen>
             <TabsComponent
               tabs={tabsPreview}
               defaultActiveTab="holdings"
               onChange={(tabId) => console.log("Selected:", tabId)}
             />
+
           </PhoneScreen>
         </div>
       </div>

@@ -30,7 +30,7 @@ const TabsComponent: React.FC<TabsProps> = ({ tabs, defaultActiveTab, onChange }
         transition-all duration-200
         ${
           activeTab === tab.id
-            ? "bg-black text-white border-2 border-gray-600"
+            ? "bg-black text-white border-1 border-gray-600"
             : "bg-transparent text-gray-400 hover:bg-gray-300 hover:text-black"
         }
       `}

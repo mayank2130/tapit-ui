@@ -1,12 +1,17 @@
 "use client";
+import { useRouter } from "next/navigation";
 
 import { PhoneScreen } from "@/components/phonescreen";
 import TabsComponent from "@/components/tabs-component";
 import { Button } from "@/components/ui/button";
 import { tabsPreview } from "@/lib/utils";
 import React from "react";
+import { Cards } from "@/components/card-component";
 
+const cards = [{ id: "finance", title: "Bajaj Finance" }];
 const page = () => {
+  const router = useRouter();
+
   return (
     <div className="pt-20 px-40 h-[50rem] w-full bg-black bg-grid-white/[0.2] relative flex items-center justify-center">
       {/* Radial gradient for the container to give a faded look */}
@@ -28,12 +33,24 @@ const page = () => {
             <Button className="p-7 text-base">Custom Components</Button>
           </div>
         </div>
-        <PhoneScreen className="border-white bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-400 via-gray-100 to-gray-500">
+        <PhoneScreen className="border-white bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-white via-gray-100 to-slate-300 rounded-3xl">
           <TabsComponent
             tabs={tabsPreview}
             defaultActiveTab="holdings"
             onChange={(tabId) => console.log("Selected:", tabId)}
           />
+          <div className="flex">
+            <Cards
+              className="bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-white via-gray-100 to-slate-300 text-black p-2 mt-12"
+              cards={cards}
+              handleClick={() => router.push("/")}
+            />
+            <Cards
+              className="bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-white via-gray-100 to-slate-300 text-black p-2 mt-12"
+              cards={cards}
+              handleClick={() => router.push("/")}
+            />
+          </div>
         </PhoneScreen>
       </div>
     </div>
