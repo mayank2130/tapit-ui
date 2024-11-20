@@ -1,9 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { cn, tabsPreview } from "@/lib/utils";
-import TabsComponent from "../tabs-component";
 import { PhoneScreen } from "../phonescreen";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { Cards } from "../card-component";
+import { cn } from "@/lib/utils";
+
+const cards = [{ id: "finance", title: "Title", label: "Label" }];
 
 interface Tab {
   id: string;
@@ -15,10 +18,10 @@ const tabs: Tab[] = [
   { id: "code", label: "Code" },
 ];
 
-
-const Preview = () => {
-
+const CardPreview = () => {
   const [activeTab, setActiveTab] = useState<string>("preview");
+
+  const router = useRouter();
 
   return (
     <div className="p-6 ml-72 bg-black text-gray-300">
@@ -53,12 +56,18 @@ const Preview = () => {
 
         <div className="border flex items-center justify-center bg-[#101010] border-[#1c1a1a55] ">
           <PhoneScreen>
-            <TabsComponent
-              tabs={tabsPreview}
-              defaultActiveTab="holdings"
-              onChange={(tabId) => console.log("Selected:", tabId)}
-            />
-
+            <div className="flex">
+              <Cards
+                className=" text-white pl-1 mt-12"
+                cards={cards}
+                handleClick={() => router.push("/")}
+              />
+              <Cards
+                className=" text-white pl-1 mt-12"
+                cards={cards}
+                handleClick={() => router.push("/")}
+              />
+            </div>
           </PhoneScreen>
         </div>
       </div>
@@ -66,4 +75,4 @@ const Preview = () => {
   );
 };
 
-export default Preview;
+export default CardPreview;

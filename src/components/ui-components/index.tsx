@@ -24,20 +24,20 @@ const UiComponents = () => {
             Swipe over tabs to see them scroll horizontally
           </p>
         </Link>
-        <Link href={`/components/button`}>
+        <Link href={`/components/card`}>
           <Card className="flex mt-40 flex-col items-center justify-center bg-black h-96 border-[#161616]">
             <CardContent>
               <Image
-                src="/scrolltabs.png"
-                height={300}
+                src="/card.png"
+                height={200}
                 width={400}
                 alt="scroll-bar"
               />
             </CardContent>
           </Card>
-          <CardTitle className="text-white pt-4">Button</CardTitle>
+          <CardTitle className="text-white pt-4">Card</CardTitle>
           <p className="text-white pt-4 text-sm font-normal tracking-normal">
-            Add button and enjoy it&apos;s various variants
+            Add Card and enjoy it&apos;s various variants
           </p>
         </Link>
       </div>

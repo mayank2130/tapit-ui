@@ -1,4 +1,3 @@
-import Navbar from "@/components/navbar";
 import ScrollComponents from "@/components/scroll-components";
 
 export default function LandingPageLayout({

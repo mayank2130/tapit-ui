@@ -42,9 +42,13 @@ export const Cards: React.FC<TabsProps> = ({
             className
           )}
         >
-          <p className={cn(`text-white font-JakartaSemiBold p-1`, className)}>
+          <div className="">
+
+          <p className={cn(`text-white font-JakartaSemiBold text-xl p-1`, className)}>
             {card.title}
           </p>
+          <p className="text-white font-sans text-sm p-1">{card.label}</p>
+          </div>
         </Link>
       ))}
     </div>
