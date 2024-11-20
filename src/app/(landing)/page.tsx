@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button";
 import { tabsPreview } from "@/lib/utils";
 import React from "react";
 import { Cards } from "@/components/card-component";
+import Image from "next/image";
 
-const cards = [{ id: "finance", title: "Bajaj Finance" }];
+const cards = [{ id: "finance", title: "Company" }];
 const page = () => {
   const router = useRouter();
 
@@ -21,7 +22,7 @@ const page = () => {
           <p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
             Make your apps look 10x more beautiful
           </p>
-          <p className="text-white">
+          <p className="text-[#b4b4b4] font-sans text-xl tracking-wide">
             Copy paste the most trending components and use them in your
             <br />
             websites without having to worry about styling and animations.
@@ -31,6 +32,30 @@ const page = () => {
               Browse Components
             </Button>
             <Button className="p-7 text-base">Custom Components</Button>
+          </div>
+          <div className="flex  gap-10 mt-20">
+            <div className="flex items-center gap-2">
+              <Image
+                alt="react native"
+                height={40}
+                width={40}
+                src={"/reactnative.svg"}
+              />
+              <p className="text-muted-foreground text-xl font-semibold">
+                React Native
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <Image
+                alt="tailwind css"
+                height={40}
+                width={40}
+                src="./tailwind.svg"
+              />
+              <p className="text-muted-foreground text-xl font-semibold">
+                Tailwind CSS
+              </p>
+            </div>
           </div>
         </div>
         <PhoneScreen className="border-white bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-white via-gray-100 to-slate-300 rounded-3xl">
