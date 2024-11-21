@@ -59,11 +59,13 @@ const CardPreview = () => {
             <div className="flex mt-12 gap-5">
               <Cards
                 className=" text-white pl-2"
+                height="h-36"
                 cards={cards}
                 handleClick={() => router.push("/")}
               />
               <Cards
                 className=" text-white pl-2"
+                height="h-36"
                 cards={cards}
                 handleClick={() => router.push("/")}
               />

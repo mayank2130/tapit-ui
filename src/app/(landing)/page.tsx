@@ -1,6 +1,6 @@
 "use client";
-import { useRouter } from "next/navigation";
 
+import { useRouter } from "next/navigation";
 import { PhoneScreen } from "@/components/phonescreen";
 import TabsComponent from "@/components/tabs-component";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,7 @@ import { tabsPreview } from "@/lib/utils";
 import React from "react";
 import { Cards } from "@/components/card-component";
 import Image from "next/image";
+import TabBar from "@/components/tab-bar";
 
 const cards = [{ id: "finance", title: "Card Title", label: "Card Label" }];
 const cards2 = [{ id: "finance", title: "Card Title", label: "Card Label" }];
@@ -74,20 +75,32 @@ const page = () => {
             defaultActiveTab="holdings"
             onChange={(tabId) => console.log("Selected:", tabId)}
           />
-          <div
-            className="flex mt-12 flex-row w-full gap-5"
-          >
+          <div className="flex mt-12 flex-row w-full gap-5">
             <Cards
               className=" text-black"
+              height="h-36"
               cards={cards}
               handleClick={() => router.push("/")}
             />
             <Cards
               className="text-black"
+              height="h-36"
               cards={cards2}
               handleClick={() => router.push("/")}
             />
           </div>
+          <Cards
+            className="text-black"
+            cards={cards2}
+            handleClick={() => router.push("/")}
+          />
+          <Cards
+            className="text-black"
+            cards={cards2}
+            height="h-44"
+            handleClick={() => router.push("/")}
+          />
+          <TabBar />
         </PhoneScreen>
       </div>
     </div>
