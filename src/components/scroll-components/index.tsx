@@ -6,11 +6,12 @@ import React from "react";
 interface MenuItem {
   title: string;
   isNew?: boolean;
+  href: string;
 }
 
 const ALL_COMPONENTS: MenuItem[] = [
-  { title: "Scroll Tabs" },
-  // { title: "3D Pin" },
+  { title: "Scroll Tabs", href: "/components/scroll-tabs" },
+  { title: "Card", href: "/components/card" },
   // { title: "Animated Modal" },
   // { title: "Animated Testimonials", isNew: false },
   // { title: "Animated Tooltip" },
@@ -108,19 +109,21 @@ const ScrollComponents = () => {
           </h2>
           <div className="space-y-3">
             {ALL_COMPONENTS.map((item, index) => (
-              <div
-                key={index}
-                className="flex items-center group/item cursor-pointer"
-              >
-                <span className="hover:text-green-500 transition-colors">
-                  {item.title}
-                </span>
-                {item.isNew && (
-                  <span className="ml-2 px-2 py-0.5 text-xs bg-emerald-500 text-white rounded">
-                    New
+              <Link href={item.href}>
+                <div
+                  key={index}
+                  className="flex pt-1 items-center group/item cursor-pointer"
+                >
+                  <span className="hover:text-green-500 transition-colors">
+                    {item.title}
                   </span>
-                )}
-              </div>
+                  {item.isNew && (
+                    <span className="ml-2 px-2 py-0.5 text-xs bg-emerald-500 text-white rounded">
+                      New
+                    </span>
+                  )}
+                </div>
+              </Link>
             ))}
           </div>
         </section>

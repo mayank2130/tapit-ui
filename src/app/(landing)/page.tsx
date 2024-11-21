@@ -9,7 +9,8 @@ import React from "react";
 import { Cards } from "@/components/card-component";
 import Image from "next/image";
 
-const cards = [{ id: "finance", title: "Company" }];
+const cards = [{ id: "finance", title: "Card Title", label: "Card Label" }];
+const cards2 = [{ id: "finance", title: "Card Title", label: "Card Label" }];
 const page = () => {
   const router = useRouter();
 
@@ -28,10 +29,18 @@ const page = () => {
             websites without having to worry about styling and animations.
           </p>
           <div className="pt-10 flex gap-4">
-            <Button className="bg-white p-7 text-black text-base hover:bg-white">
+            <Button
+              onClick={() => router.push("/components")}
+              className="bg-white p-7 text-black text-base hover:bg-white"
+            >
               Browse Components
             </Button>
-            <Button className="p-7 text-base">Custom Components</Button>
+            <Button
+              onClick={() => router.push("/pricing")}
+              className="p-7 text-base"
+            >
+              Custom Components
+            </Button>
           </div>
           <div className="flex  gap-10 mt-20">
             <div className="flex items-center gap-2">
@@ -58,21 +67,24 @@ const page = () => {
             </div>
           </div>
         </div>
-        <PhoneScreen className="border-white bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-white via-gray-100 to-slate-300 rounded-3xl">
+
+        <PhoneScreen className="border-black z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-400 to-gray-100 rounded-3xl">
           <TabsComponent
             tabs={tabsPreview}
             defaultActiveTab="holdings"
             onChange={(tabId) => console.log("Selected:", tabId)}
           />
-          <div className="flex">
+          <div
+            className="flex mt-12"
+          >
             <Cards
-              className="bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-white via-gray-100 to-slate-300 text-black p-2 mt-12"
+              className=" text-black"
               cards={cards}
               handleClick={() => router.push("/")}
             />
             <Cards
-              className="bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-white via-gray-100 to-slate-300 text-black p-2 mt-12"
-              cards={cards}
+              className="text-black"
+              cards={cards2}
               handleClick={() => router.push("/")}
             />
           </div>

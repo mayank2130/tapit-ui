@@ -28,9 +28,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo and Brand */}
           <div className="flex items-center space-x-8">
-            <div className="flex items-center">
-              <span className="text-white font-semibold text-lg">Brand</span>
-            </div>
+            <Link href="/">
+              <div className="flex items-center">
+                <span className="text-white font-semibold text-lg">Brand</span>
+              </div>
+            </Link>
 
             {/* Navigation Links */}
             <div className="hidden md:flex space-x-6">
