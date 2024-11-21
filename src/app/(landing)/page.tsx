@@ -12,7 +12,7 @@ import TabBar from "@/components/tab-bar";
 
 const cards = [{ id: "finance", title: "Card Title", label: "Card Label" }];
 const cards2 = [{ id: "finance", title: "Card Title", label: "Card Label" }];
-const page = () => {
+const Page = () => {
   const router = useRouter();
 
   return (
@@ -107,4 +107,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

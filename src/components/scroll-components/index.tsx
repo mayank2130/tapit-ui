@@ -108,10 +108,9 @@ const ScrollComponents = () => {
             All Components
           </h2>
           <div className="space-y-3">
-            {ALL_COMPONENTS.map((item, index) => (
-              <Link href={item.href}>
+            {ALL_COMPONENTS.map((item) => (
+              <Link href={item.href} key={item.title}>
                 <div
-                  key={index}
                   className="flex pt-1 items-center group/item cursor-pointer"
                 >
                   <span className="hover:text-green-500 transition-colors">
