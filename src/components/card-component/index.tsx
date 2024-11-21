@@ -23,13 +23,11 @@ export const Cards: React.FC<TabsProps> = ({
   const onCardPress = (cardId: string) => {
     if (handleClick) {
       handleClick(cardId);
-    } else {
-      return;
     }
   };
 
   return (
-    <div>
+    <div className="w-full">
       {cards.map((card) => (
         <Link
           key={card.id}
@@ -37,17 +35,18 @@ export const Cards: React.FC<TabsProps> = ({
           onClick={() => onCardPress(card.id)}
           className={cn(
             `
-            bg-none border mb-10 border-gray-700 ml-5 rounded-2xl flex items-end justify-start p-1 h-36 w-36
+            bg-none border border-gray-700 rounded-2xl flex items-end justify-start p-4 h-36 w-full mb-4
           `,
             className
           )}
         >
-          <div className="">
-
-          <p className={cn(`text-white font-JakartaSemiBold text-xl p-1`, className)}>
-            {card.title}
-          </p>
-          <p className={cn("text-white font-sans text-sm p-1",className)}>{card.label}</p>
+          <div className="w-full">
+            <p className={cn(`text-white font-JakartaSemiBold text-xl`, className)}>
+              {card.title}
+            </p>
+            <p className={cn("text-white font-sans text-sm", className)}>
+              {card.label}
+            </p>
           </div>
         </Link>
       ))}

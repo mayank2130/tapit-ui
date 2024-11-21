@@ -56,14 +56,14 @@ const CardPreview = () => {
 
         <div className="border flex items-center justify-center bg-[#101010] border-[#1c1a1a55] ">
           <PhoneScreen>
-            <div className="flex mt-12">
+            <div className="flex mt-12 gap-5">
               <Cards
-                className=" text-white pl-1 "
+                className=" text-white pl-2"
                 cards={cards}
                 handleClick={() => router.push("/")}
               />
               <Cards
-                className=" text-white pl-1 "
+                className=" text-white pl-2"
                 cards={cards}
                 handleClick={() => router.push("/")}
               />

@@ -75,7 +75,7 @@ const page = () => {
             onChange={(tabId) => console.log("Selected:", tabId)}
           />
           <div
-            className="flex mt-12"
+            className="flex mt-12 flex-row w-full gap-5"
           >
             <Cards
               className=" text-black"
