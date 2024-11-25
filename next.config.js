@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-};
+  webpack: (config) => {
+    config.resolve.extensionAlias = {
+      '.js': ['.js', '.ts', '.tsx']
+    }
+    return config
+  }
+}
 
-module.exports = nextConfig;
+export default nextConfig
