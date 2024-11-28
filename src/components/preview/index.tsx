@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { cn, tabsPreview } from "@/lib/utils";
 import TabsComponent from "../tabs-component";
 import { PhoneScreen } from "../phonescreen";
+import { tabsCode } from "@/lib/codeString";
 
 interface Tab {
   id: string;
@@ -15,9 +16,7 @@ const tabs: Tab[] = [
   { id: "code", label: "Code" },
 ];
 
-
 const Preview = () => {
-
   const [activeTab, setActiveTab] = useState<string>("preview");
 
   return (
@@ -52,15 +51,45 @@ const Preview = () => {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gray-800" />
 
         <div className="border flex items-center justify-center bg-[#101010] border-[#1c1a1a55] ">
-          <PhoneScreen>
-            <TabsComponent
-              tabs={tabsPreview}
-              defaultActiveTab="holdings"
-              onChange={(tabId) => console.log("Selected:", tabId)}
-            />
-
-          </PhoneScreen>
+          {activeTab !== "code" && (
+            <PhoneScreen>
+              <TabsComponent
+                tabs={tabsPreview}
+                defaultActiveTab="holdings"
+                onChange={(tabId) => console.log("Selected:", tabId)}
+              />
+            </PhoneScreen>
+          )}
         </div>
+        {activeTab === "code" && (
+          <div className="bg-[#101010] rounded-lg p-4 font-mono text-sm max-h-96">
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center"></div>
+              <button
+                className="text-gray-400 hover:text-white transition-colors"
+                onClick={() => navigator.clipboard.writeText(tabsCode)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                </svg>
+              </button>
+            </div>
+            <pre className="text-sm overflow-y-auto max-h-72 scrollbar-hide">
+              <code>{tabsCode}</code>
+            </pre>
+          </div>
+        )}
       </div>
     </div>
   );
