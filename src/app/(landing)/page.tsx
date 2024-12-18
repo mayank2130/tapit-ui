@@ -68,40 +68,45 @@ const Page = () => {
             </div>
           </div>
         </div>
-
-        <PhoneScreen className="border-black z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-400 to-gray-100 rounded-3xl">
-          <TabsComponent
-            tabs={tabsPreview}
-            defaultActiveTab="holdings"
-            onChange={(tabId) => console.log("Selected:", tabId)}
-          />
-          <div className="flex mt-12 flex-row w-full gap-5">
+        <div className="mt-24">
+          <PhoneScreen className="border-black z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-400 to-gray-100 rounded-[30px]">
+            <div className="ml-2 mt-5">
+              <TabsComponent
+                tabs={tabsPreview}
+                defaultActiveTab="explore"
+                onChange={(tabId) => console.log("Selected:", tabId)}
+              />
+            </div>
+            <div className="flex mt-12 mx-2 flex-row w-full">
+              <Cards
+                className=" text-black"
+                height="h-32 w-40"
+                cards={cards}
+                handleClick={() => router.push("/")}
+              />
+              <Cards
+                className="text-black"
+                height="h-32 w-40"
+                cards={cards2}
+                handleClick={() => router.push("/")}
+              />
+            </div>
             <Cards
-              className=" text-black"
-              height="h-36"
-              cards={cards}
-              handleClick={() => router.push("/")}
-            />
-            <Cards
-              className="text-black"
-              height="h-36"
+              className="text-black mx-2"
               cards={cards2}
               handleClick={() => router.push("/")}
             />
-          </div>
-          <Cards
-            className="text-black"
-            cards={cards2}
-            handleClick={() => router.push("/")}
-          />
-          <Cards
-            className="text-black"
-            cards={cards2}
-            height="h-44"
-            handleClick={() => router.push("/")}
-          />
-          <TabBar />
-        </PhoneScreen>
+            <Cards
+              className="text-black mx-2"
+              cards={cards2}
+              height="h-44"
+              handleClick={() => router.push("/")}
+            />
+            <div className="mx-2 mt-24">
+              <TabBar />
+            </div>
+          </PhoneScreen>
+        </div>
       </div>
     </div>
   );
