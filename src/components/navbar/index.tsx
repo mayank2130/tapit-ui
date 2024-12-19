@@ -30,7 +30,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-8">
             <Link href="/">
               <div className="flex items-center">
-                <span className="text-white font-semibold text-lg">Brand</span>
+                <span className="text-white font-semibold text-lg">TapUI</span>
               </div>
             </Link>
 
