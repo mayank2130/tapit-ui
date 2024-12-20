@@ -16,8 +16,9 @@ export const PhoneScreen = ({
     >
       <div
         className={cn(
-          "relative w-[375px] h-[600px] sm:h-[650px] md:h-[700px] lg:h-[750px] xl:h-[800px] bg-black rounded-[40px] shadow-2xl overflow-hidden",
-          "border-gray-900 ring-4 ring-gray-700"
+          "relative w-[330px] bg-black rounded-[40px] shadow-2xl overflow-hidden",
+          "border-gray-900 ring-4 ring-gray-700",
+          className
         )}
       >
         {/* Notch */}

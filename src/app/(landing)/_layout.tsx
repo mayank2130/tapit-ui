@@ -1,4 +1,4 @@
-import ScrollComponents from "@/components/scroll-components";
+import ScrollComponents from "@/components/landing/scroll-components";
 
 export default function LandingPageLayout({
   children,

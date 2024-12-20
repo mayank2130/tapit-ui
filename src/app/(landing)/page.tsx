@@ -2,13 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import { PhoneScreen } from "@/components/phonescreen";
-import TabsComponent from "@/components/tabs-component";
+import TabsComponent from "@/components/custom/scrollable-tabs";
 import { Button } from "@/components/ui/button";
 import { tabsPreview } from "@/lib/utils";
 import React from "react";
-import { Cards } from "@/components/card-component";
+import { Cards } from "@/components/custom/card-component";
 import Image from "next/image";
-import TabBar from "@/components/tab-bar";
+import TabBar from "@/components/landing/tab-bar";
 
 const cards = [{ id: "finance", title: "Card Title", label: "Card Label" }];
 const cards2 = [{ id: "finance", title: "Card Title", label: "Card Label" }];
@@ -69,7 +69,7 @@ const Page = () => {
           </div>
         </div>
         <div className="mt-24">
-          <PhoneScreen className="border-black z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-400 to-gray-100 rounded-[30px]">
+          <PhoneScreen className="h-[540px] w-[375px] md:h-[800px] border-black z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-400 to-gray-100 rounded-[30px]">
             <div className="ml-2 mt-5">
               <TabsComponent
                 tabs={tabsPreview}
@@ -91,18 +91,20 @@ const Page = () => {
                 handleClick={() => router.push("/")}
               />
             </div>
-            <Cards
-              className="text-black mx-2"
-              cards={cards2}
-              handleClick={() => router.push("/")}
-            />
-            <Cards
-              className="text-black mx-2"
-              cards={cards2}
-              height="h-44"
-              handleClick={() => router.push("/")}
-            />
-            <div className="mx-2 mt-24">
+            <div className="mr-3">
+              <Cards
+                className="text-black mx-2"
+                cards={cards2}
+                handleClick={() => router.push("/")}
+              />
+              <Cards
+                className="text-black mx-2"
+                cards={cards2}
+                height="h-44"
+                handleClick={() => router.push("/")}
+              />
+            </div>
+            <div className="mr-4 mt-24">
               <TabBar />
             </div>
           </PhoneScreen>

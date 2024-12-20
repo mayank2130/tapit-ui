@@ -24,7 +24,7 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-40 px-4 bg-black">
+      <div className="mx-32 lg:mx-40 px-4 bg-black">
         <div className="flex items-center justify-between h-16">
           {/* Logo and Brand */}
           <div className="flex items-center space-x-8">

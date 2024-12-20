@@ -1,4 +1,4 @@
-import ScrollComponents from "@/components/scroll-components";
+import ScrollComponents from "@/components/landing/scroll-components";
 import UiComponents from "@/components/ui-components";
 import React from "react";
 
