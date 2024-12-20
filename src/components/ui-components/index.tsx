@@ -1,90 +1,62 @@
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { link } from "fs";
 import Image from "next/image";
 import Link from "next/link";
 
 const UiComponents = () => {
-
   
-  return (
-    <div className="ml-72 flex flex-col">
-      <div className="flex flex-row gap-x-10 h-full ml-10">
-        <Link href={`/components/scroll-tabs`}>
-          <Card className="flex mt-40 flex-col items-center justify-center bg-black h-96 border-[#161616]">
-            <CardContent>
-              <Image
-                src="/scrolltabs.png"
-                height={300}
-                width={400}
-                alt="scroll-bar"
-              />
-            </CardContent>
-          </Card>
-          <CardTitle className="text-white pt-4">Scrollable Tabs</CardTitle>
-          <p className="text-white pt-4 text-sm font-normal tracking-normal">
-            Swipe over tabs to see them scroll horizontally
-          </p>
-        </Link>
-        <Link href={`/components/card`}>
-          <Card className="flex mt-40 flex-col items-center justify-center bg-black h-96 border-[#161616]">
-            <CardContent>
-              <Image
-                src="/card.png"
-                height={200}
-                width={400}
-                alt="scroll-bar"
-              />
-            </CardContent>
-          </Card>
-          <CardTitle className="text-white pt-4">Card</CardTitle>
-          <p className="text-white pt-4 text-sm font-normal tracking-normal">
-            Add Card and enjoy it&apos;s various variants
-          </p>
-        </Link>
-      </div>
+  const componentsData = [
+    {
+      name: "scroll-tabs",
+      imageSrc: "/scrolltabs.png",
+      title: "Scrollable Tabs",
+      description: "Swipe over tabs to see them scroll horizontally",
+      link: "/components/scroll-tabs",
+    },
+    {
+      name: "card",
+      imageSrc: "/card.png",
+      title: "Card",
+      description: "Add Card and enjoy its various variants",
+      link: "/components/card",
+    },
+    {
+      name: "flipwords",
+      imageSrc: "/flipwords.jpeg",
+      title: "Flip Words",
+      description: "Custom Flip Words with various options",
+      link: "/components/card",
+    },
+    {
+      name: "otp",
+      imageSrc: "/otp.jpeg",
+      title: "Otp Input",
+      description: "Handle user Otp Input in style",
+      link: "/components/card",
+    },
+  ];
 
-      <div className="flex flex-row gap-x-10 h-full ml-10">
-        <Card className="flex mt-40 items-center justify-center">
-          <CardContent>
-            <Image
-              src="./globe.svg"
-              height={300}
-              width={400}
-              alt="scroll-bar"
-            />
-          </CardContent>
-        </Card>
-        <Card className="flex mt-40 items-center justify-center">
-          <CardContent>
-            <Image
-              src="./globe.svg"
-              height={300}
-              width={400}
-              alt="scroll-bar"
-            />
-          </CardContent>
-        </Card>
-      </div>
-      <div className="flex flex-row gap-x-10 h-full ml-10">
-        <Card className="flex mt-40 items-center justify-center">
-          <CardContent>
-            <Image
-              src="./globe.svg"
-              height={300}
-              width={400}
-              alt="scroll-bar"
-            />
-          </CardContent>
-        </Card>
-        <Card className="flex mt-40 items-center justify-center">
-          <CardContent>
-            <Image
-              src="./globe.svg"
-              height={300}
-              width={400}
-              alt="scroll-bar"
-            />
-          </CardContent>
-        </Card>
+  return (
+    <div className="ml-72 md:mr-20 flex flex-col">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 h-full ml-10 mt-20">
+        {componentsData.map((component) => (
+          <Link href={component.link} key={component.name}>
+            <Card className="flex mt-20 flex-col items-center justify-center bg-black h-96 border-[#161616]">
+              <CardContent>
+                <Image
+                  src={component.imageSrc}
+                  height={300}
+                  width={400}
+                  alt={component.name}
+                />
+              </CardContent>
+            </Card>
+            <CardTitle className="text-white pt-4">{component.title}</CardTitle>
+            <p className="text-white pt-4 text-sm font-normal tracking-normal">
+              {component.description}
+            </p>
+          </Link>
+        ))}
       </div>
     </div>
   );
