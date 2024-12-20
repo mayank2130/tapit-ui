@@ -8,6 +8,7 @@ import { cn, tabsPreview } from "@/lib/utils";
 import { cardsCode } from "@/lib/codeString";
 import TabsComponent from "@/components/custom/scrollable-tabs";
 import { Button } from "../ui/button";
+import { InputOTPDemo } from "./otp-input";
 
 const cards = [{ id: "finance", title: "Title", label: "Label" }];
 
@@ -16,7 +17,7 @@ interface Tab {
   label: string;
 }
 type props = {
-    phoneComponent: String;
+  phoneComponent: String;
 };
 const tabs: Tab[] = [
   { id: "preview", label: "Preview" },
@@ -59,6 +60,14 @@ const Previews = ({ phoneComponent }: props) => {
         </div>
       ),
     },
+    {
+      id: "otp-input",
+      component: (
+        <div className="flex justify-center m-4 mt-20">
+          <InputOTPDemo />
+        </div>
+      ),
+    },
   ];
 
   return (
@@ -96,10 +105,7 @@ const Previews = ({ phoneComponent }: props) => {
             {componentsPreview.map(
               (c) =>
                 phoneComponent === c.id && (
-                  <PhoneScreen
-                    key={c.id}
-                    className="h-[500px] md:h-[700px]"
-                  >
+                  <PhoneScreen key={c.id} className="h-[500px] md:h-[700px]">
                     {c.component}
                   </PhoneScreen>
                 )

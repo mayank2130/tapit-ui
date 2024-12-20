@@ -32,7 +32,7 @@ const UiComponents = () => {
       imageSrc: "/otp.jpeg",
       title: "Otp Input",
       description: "Handle user Otp Input in style",
-      link: "/components/card",
+      link: "/components/otp-input",
     },
   ];
 
