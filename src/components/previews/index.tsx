@@ -17,7 +17,7 @@ interface Tab {
   label: string;
 }
 type props = {
-  phoneComponent: String;
+  phoneComponent: string;
 };
 const tabs: Tab[] = [
   { id: "preview", label: "Preview" },
