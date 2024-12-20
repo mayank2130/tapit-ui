@@ -113,3 +113,140 @@ export const Cards: React.FC<TabsProps> = ({
   );
 };
 `;
+
+export const inputOtpCode = `import React, {
+  forwardRef,
+  useContext,
+  useRef,
+  useState,
+} from "react";
+import { View, TextInput, Text, TextInputProps, Image } from "react-native";
+import { cn } from "@/lib/utils";
+
+interface InputOTPContextType {
+  slots: {
+    char: string;
+    isActive: boolean;
+    hasFakeCaret: boolean;
+  }[];
+  handleChange: (value: string, index: number) => void;
+  handleBackspace: (value: string, index: number) => void;
+  inputsRef: React.MutableRefObject<(TextInput | null)[]>;
+}
+
+const InputOTPContext = React.createContext<InputOTPContextType>({
+  slots: [],
+  handleChange: () => {},
+  handleBackspace: () => {},
+  inputsRef: { current: [] },
+});
+
+interface InputOTPProps extends React.ComponentProps<typeof View> {
+  maxLength?: number;
+  onComplete?: (otp: string) => void;
+}
+
+export const InputOTP = forwardRef<View, InputOTPProps>(
+  ({ maxLength = 6, children, onComplete, ...props }, ref) => {
+    const [otp, setOtp] = useState<string[]>(Array(maxLength).fill(""));
+    const inputsRef = useRef<(TextInput | null)[]>([]);
+
+    const handleChange = (value: string, index: number) => {
+      const newOtp = [...otp];
+      newOtp[index] = value;
+      setOtp(newOtp);
+
+      
+      if (value && index < maxLength - 1) {
+        inputsRef.current[index + 1]?.focus();
+      }
+
+      
+      const newOtpString = newOtp.join("");
+      if (newOtpString.length === maxLength && onComplete) {
+        onComplete(newOtpString);
+      }
+    };
+
+    const handleBackspace = (value: string, index: number) => {
+      if (!value && index > 0) {
+        inputsRef.current[index - 1]?.focus();
+      }
+    };
+
+    const slots = otp.map((char, index) => ({
+      char,
+      isActive: inputsRef.current[index]?.isFocused() || false,
+      hasFakeCaret: false,
+    }));
+
+    return (
+      <InputOTPContext.Provider
+        value={{
+          slots,
+          handleChange,
+          handleBackspace,
+          inputsRef,
+        }}
+      >
+        <View {...props}>{children}</View>
+      </InputOTPContext.Provider>
+    );
+  }
+);
+InputOTP.displayName = "InputOTP";
+
+interface InputOTPGroupProps extends React.ComponentProps<typeof View> {}
+
+export const InputOTPGroup = forwardRef<View, InputOTPGroupProps>(
+  ({ className, ...props }, ref) => (
+    <View
+      ref={ref}
+      className={cn(\`flex-row items-center justify-center\`, className)}
+      {...props}
+    />
+  )
+);
+InputOTPGroup.displayName = "InputOTPGroup";
+
+interface InputOTPSlotProps extends TextInputProps {
+  index: number;
+}
+
+export const InputOTPSlot = forwardRef<TextInput, InputOTPSlotProps>(
+  ({ index, className, ...props }, ref) => {
+    const { slots, handleChange, handleBackspace, inputsRef } =
+      useContext(InputOTPContext);
+    const { char } = slots[index];
+
+    return (
+      <TextInput
+        ref={(input) => {
+          inputsRef.current[index] = input;
+          
+          if (typeof ref === "function") {
+            ref(input);
+          } else if (ref && "current" in ref) {
+            ref.current = input;
+          }
+        }}
+        value={char}
+        onChangeText={(value) => handleChange(value, index)}
+        onKeyPress={({ nativeEvent }) => {
+          if (nativeEvent.key === "Backspace") handleBackspace(char, index);
+        }}
+        maxLength={1}
+        keyboardType="number-pad"
+        textAlign="center"
+        className={cn(
+          \`h-12 w-12 border border-gray-300 text-center text-lg rounded-md 
+           focus:border-blue-500 focus:ring-2 focus:ring-blue-200\`,
+          className
+        )}
+        {...props}
+      />
+    );
+  }
+);
+InputOTPSlot.displayName = "InputOTPSlot";
+`;

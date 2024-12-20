@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Cards } from "../custom/card-component";
 import { cn, tabsPreview } from "@/lib/utils";
-import { cardsCode } from "@/lib/codeString";
+import { cardsCode, inputOtpCode, tabsCode } from "@/lib/codeString";
 import TabsComponent from "@/components/custom/scrollable-tabs";
 import { Button } from "../ui/button";
 import { InputOTPDemo } from "./otp-input";
@@ -47,6 +47,7 @@ const Previews = ({ phoneComponent }: props) => {
           />
         </div>
       ),
+      code: cardsCode,
     },
     {
       id: "scroll-tabs",
@@ -59,6 +60,7 @@ const Previews = ({ phoneComponent }: props) => {
           />
         </div>
       ),
+      code: tabsCode,
     },
     {
       id: "otp-input",
@@ -67,6 +69,7 @@ const Previews = ({ phoneComponent }: props) => {
           <InputOTPDemo />
         </div>
       ),
+      code: inputOtpCode,
     },
   ];
 
@@ -114,31 +117,45 @@ const Previews = ({ phoneComponent }: props) => {
         )}
         {activeTab === "code" && (
           <div className="bg-[#101010] rounded-lg p-4 font-mono text-sm max-h-96">
-            <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center"></div>
-              <button
-                className="text-gray-400 hover:text-white transition-colors"
-                onClick={() => navigator.clipboard.writeText(cardsCode)}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-                </svg>
-              </button>
-            </div>
-            <pre className="text-sm overflow-y-auto max-h-72 scrollbar-hide">
-              <code>{cardsCode}</code>
-            </pre>
+            {componentsPreview.map(
+              (c) =>
+                phoneComponent === c.id && (
+                  <>
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center"></div>
+                      <button
+                        className="text-gray-400 hover:text-white transition-colors"
+                        onClick={() => navigator.clipboard.writeText(c.code)}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <rect
+                            width="14"
+                            height="14"
+                            x="8"
+                            y="8"
+                            rx="2"
+                            ry="2"
+                          />
+                          <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                        </svg>
+                      </button>
+                    </div>
+                    <pre className="text-sm overflow-y-auto max-h-72 scrollbar-hide">
+                      <code>{c.code}</code>
+                    </pre>
+                  </>
+                )
+            )}
           </div>
         )}
       </div>
