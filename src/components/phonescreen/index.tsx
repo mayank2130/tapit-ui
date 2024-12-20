@@ -16,7 +16,7 @@ export const PhoneScreen = ({
     >
       <div
         className={cn(
-          "relative w-[375px] h-[812px] bg-black rounded-[40px] shadow-2xl overflow-hidden",
+          "relative w-[375px] h-[600px] sm:h-[650px] md:h-[700px] lg:h-[750px] xl:h-[800px] bg-black rounded-[40px] shadow-2xl overflow-hidden",
           "border-gray-900 ring-4 ring-gray-700"
         )}
       >
@@ -31,7 +31,7 @@ export const PhoneScreen = ({
         {/* Screen Content */}
         <div
           className={cn(
-            "absolute inset-0 top-[30px] bottom-[20px] left-[10px] right-[10px]  rounded-[30px] overflow-hidden",
+            "absolute inset-0 top-[30px] bottom-[20px] left-[10px] right-[10px] rounded-[30px] overflow-hidden",
             className
           )}
         >
