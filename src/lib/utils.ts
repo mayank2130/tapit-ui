@@ -13,3 +13,13 @@ export const tabsPreview = [
   { id: "stocks", label: "Equity" },
   { id: "waitlist", label: "ETFs" },
 ];
+
+interface Tab {
+  id: string;
+  label: string;
+}
+
+export const tabs: Tab[] = [
+  { id: "preview", label: "Preview" },
+  { id: "code", label: "Code" },
+];

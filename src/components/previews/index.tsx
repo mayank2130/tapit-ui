@@ -2,76 +2,16 @@
 import React, { useState } from "react";
 import { PhoneScreen } from "../phonescreen";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
-import { Cards } from "../custom/card-component";
-import { cn, tabsPreview } from "@/lib/utils";
-import { cardsCode, inputOtpCode, tabsCode } from "@/lib/codeString";
-import TabsComponent from "@/components/custom/scrollable-tabs";
+import { cn, tabs } from "@/lib/utils";
 import { Button } from "../ui/button";
-import { InputOTPDemo } from "./otp-input";
+import { componentsPreview } from "@/lib/componentsPreview";
 
-const cards = [{ id: "finance", title: "Title", label: "Label" }];
-
-interface Tab {
-  id: string;
-  label: string;
-}
 type props = {
   phoneComponent: string;
 };
-const tabs: Tab[] = [
-  { id: "preview", label: "Preview" },
-  { id: "code", label: "Code" },
-];
 
 const Previews = ({ phoneComponent }: props) => {
   const [activeTab, setActiveTab] = useState<string>("preview");
-  const router = useRouter();
-
-  const componentsPreview = [
-    {
-      id: "card",
-      component: (
-        <div className="flex space-x-4 pt-4">
-          <Cards
-            className=" text-white pl-2"
-            height="h-36"
-            cards={cards}
-            handleClick={() => router.push("/")}
-          />
-          <Cards
-            className=" text-white pl-2"
-            height="h-36"
-            cards={cards}
-            handleClick={() => router.push("/")}
-          />
-        </div>
-      ),
-      code: cardsCode,
-    },
-    {
-      id: "scroll-tabs",
-      component: (
-        <div className="flex mt-5">
-          <TabsComponent
-            tabs={tabsPreview}
-            defaultActiveTab="holdings"
-            onChange={(tabId) => console.log("Selected:", tabId)}
-          />
-        </div>
-      ),
-      code: tabsCode,
-    },
-    {
-      id: "otp-input",
-      component: (
-        <div className="flex justify-center m-4 mt-20">
-          <InputOTPDemo />
-        </div>
-      ),
-      code: inputOtpCode,
-    },
-  ];
 
   return (
     <div className="p-6 ml-72 bg-black text-gray-300">
@@ -105,7 +45,7 @@ const Previews = ({ phoneComponent }: props) => {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gray-800" />
         {activeTab !== "code" && (
           <div className="border flex items-center justify-center bg-[#101010] border-[#1c1a1a55] ">
-            {componentsPreview.map(
+            {componentsPreview().map(
               (c) =>
                 phoneComponent === c.id && (
                   <PhoneScreen key={c.id} className="h-[500px] md:h-[700px]">
@@ -117,7 +57,7 @@ const Previews = ({ phoneComponent }: props) => {
         )}
         {activeTab === "code" && (
           <div className="bg-[#101010] rounded-lg p-4 font-mono text-sm max-h-96">
-            {componentsPreview.map(
+            {componentsPreview().map(
               (c) =>
                 phoneComponent === c.id && (
                   <>
