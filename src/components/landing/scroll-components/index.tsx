@@ -12,6 +12,9 @@ interface MenuItem {
 const ALL_COMPONENTS: MenuItem[] = [
   { title: "Scroll Tabs", href: "/components/scroll-tabs" },
   { title: "Card", href: "/components/card" },
+  { title: "Dropdown Menu", href: "/components/dropdown-menu" },
+  { title: "OTP Input", href: "/components/otp-input" },
+  { title: "Flip Words", href: "/components/flip-words" },
   // { title: "Animated Modal" },
   // { title: "Animated Testimonials", isNew: false },
   // { title: "Animated Tooltip" },
@@ -111,7 +114,7 @@ const ScrollComponents = () => {
             {ALL_COMPONENTS.map((item) => (
               <Link href={item.href} key={item.title}>
                 <div
-                  className="flex pt-1 items-center group/item cursor-pointer"
+                  className="flex pt-2 items-center group/item cursor-pointer"
                 >
                   <span className="hover:text-green-500 transition-colors">
                     {item.title}

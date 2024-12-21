@@ -25,7 +25,7 @@ export const componentsData = [
       imageSrc: "/flipwords.jpeg",
       title: "Flip Words",
       description: "Custom Flip Words with various options",
-      link: "/components/card",
+      link: "/components/flip-words",
     },
     {
       name: "otp",
