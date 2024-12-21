@@ -250,3 +250,143 @@ export const InputOTPSlot = forwardRef<TextInput, InputOTPSlotProps>(
 );
 InputOTPSlot.displayName = "InputOTPSlot";
 `;
+
+export const dropdownmenu = `import React, { createContext, useContext, useState, useRef } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Animated,
+  Dimensions,
+} from "react-native";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+
+type SelectContextType = {
+  value: string;
+  onChange: (value: string) => void;
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+};
+
+const SelectContext = createContext<SelectContextType | null>(null);
+
+const useSelectContext = () => {
+  const context = useContext(SelectContext);
+  if (!context)
+    throw new Error("Select components must be used within a Select");
+  return context;
+};
+
+export const Select = ({
+  children,
+  defaultValue = "",
+  width = 110,
+}: {
+  children: React.ReactNode;
+  defaultValue?: string;
+  width?: number;
+}) => {
+  const [value, setValue] = useState(defaultValue);
+  const [isOpen, setIsOpen] = useState(false);
+  const slideAnim = useRef(new Animated.Value(0)).current;
+
+  React.useEffect(() => {
+    Animated.timing(slideAnim, {
+      toValue: isOpen ? 1 : 0,
+      duration: 200,
+      useNativeDriver: true,
+    }).start();
+  }, [isOpen]);
+
+  return (
+    <SelectContext.Provider
+      value={{ value, onChange: setValue, isOpen, setIsOpen }}
+    >
+      <View style={{ width }} className="relative">
+        {children}
+      </View>
+    </SelectContext.Provider>
+  );
+};
+
+export const SelectTrigger = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  const { setIsOpen, isOpen } = useSelectContext();
+  const icon = isOpen ? faChevronUp : faChevronDown;
+
+  return (
+    <TouchableOpacity
+      onPress={() => setIsOpen(!isOpen)}
+      className={\`flex-row items-center justify-between p-2 bg-white border border-gray-200 rounded-lg \${className}\`}
+    >
+      {children}
+      <FontAwesomeIcon icon={icon} size={16} />
+    </TouchableOpacity>
+  );
+};
+
+export const SelectContent = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  const { isOpen } = useSelectContext();
+
+  if (!isOpen) return null;
+
+  return (
+    <View
+      className={\`absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 z-50 \${className}\`}
+    >
+      {children}
+    </View>
+  );
+};
+
+export const SelectValue = ({ placeholder }: { placeholder: string }) => {
+  const { value } = useSelectContext();
+  return <Text className="text-sm text-gray-900">{value || placeholder}</Text>;
+};
+
+export const SelectGroup = ({ children }: { children: React.ReactNode }) => {
+  return <View className="py-1">{children}</View>;
+};
+
+export const SelectLabel = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <Text className="px-2 py-1 text-sm font-medium text-gray-500">
+      {children}
+    </Text>
+  );
+};
+
+export const SelectItem = ({
+  value,
+  children,
+}: {
+  value: string;
+  children?: React.ReactNode;
+}) => {
+  const { onChange, setIsOpen } = useSelectContext();
+
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        onChange(value);
+        setIsOpen(false);
+      }}
+      className="px-2 py-2 hover:bg-gray-100"
+    >
+      <Text className="text-sm">{children}</Text>
+    </TouchableOpacity>
+  );
+};
+`
