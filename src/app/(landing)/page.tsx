@@ -69,7 +69,7 @@ const Page = () => {
           </div>
         </div>
         <div className="mt-24">
-          <PhoneScreen className="h-[540px] w-[375px] md:h-[800px] border-black z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-400 to-gray-100 rounded-[30px]">
+          <PhoneScreen className="h-[540px] w-[375px] md:h-[750px] border-black z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-400 to-gray-100 rounded-[30px]">
             <div className="ml-2 mt-5">
               <TabsComponent
                 tabs={tabsPreview}
