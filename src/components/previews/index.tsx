@@ -4,7 +4,7 @@ import { PhoneScreen } from "../phonescreen";
 import { motion } from "framer-motion";
 import { cn, tabs } from "@/lib/utils";
 import { Button } from "../ui/button";
-import { componentsPreview } from "@/lib/componentsPreview";
+import { ComponentsPreview } from "@/lib/componentsPreview";
 
 type props = {
   phoneComponent: string;
@@ -45,7 +45,7 @@ const Previews = ({ phoneComponent }: props) => {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gray-800" />
         {activeTab !== "code" && (
           <div className="border flex items-center justify-center bg-[#101010] border-[#1c1a1a55] ">
-            {componentsPreview().map(
+            {ComponentsPreview().map(
               (c) =>
                 phoneComponent === c.id && (
                   <PhoneScreen key={c.id} className="h-[500px] md:h-[700px]">
@@ -57,7 +57,7 @@ const Previews = ({ phoneComponent }: props) => {
         )}
         {activeTab === "code" && (
           <div className="bg-[#101010] rounded-lg p-4 font-mono text-sm max-h-96">
-            {componentsPreview().map(
+            {ComponentsPreview().map(
               (c) =>
                 phoneComponent === c.id && (
                   <>

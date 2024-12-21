@@ -10,7 +10,7 @@ import { SelectDemo } from "@/components/previews/dropdown-menu";
 
 import React from "react";
 
-export const componentsPreview = () => {
+export const ComponentsPreview = () => {
   const router = useRouter();
   const cards = [{ id: "finance", title: "Title", label: "Label" }];
 
