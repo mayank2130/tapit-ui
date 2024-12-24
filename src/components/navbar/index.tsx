@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { Moon, Search } from "lucide-react";
 import Link from "next/link";
@@ -17,7 +17,15 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
+    <motion.nav
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{
+        duration: 0.5,
+        delay: 0.1,
+        type: "spring",
+        stiffness: 200,
+      }}
       className={`fixed font-mono top-0 w-full z-50 transition-all duration-200 ${
         isScrolled
           ? "bg-black/95 backdrop-blur-sm border-b border-gray-800"
@@ -100,7 +108,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
