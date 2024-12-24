@@ -10,39 +10,11 @@ import { Cards } from "@/components/custom/card-component";
 import Image from "next/image";
 import TabBar from "@/components/landing/tab-bar";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 const cards = [{ id: "finance", title: "Card Title", label: "Card Label" }];
 const cards2 = [{ id: "finance", title: "Card Title", label: "Card Label" }];
 const Page = () => {
   const router = useRouter();
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-    setIsMounted(true);
-
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  if (!isMounted) {
-    return null; // or loading state
-  }
 
   return (
     <div className="flex flex-row justify-around items-center h-screen w-screen ">
@@ -53,6 +25,7 @@ const Page = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-white text-6xl font-bold  mb-6"
+          
         >
           Make your apps look 10x<br /> more beautiful
         </motion.h1>
