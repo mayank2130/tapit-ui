@@ -35,7 +35,7 @@ const ALL_COMPONENTS: MenuItem[] = [
 
 const ScrollComponents = () => {
   return (
-    <div className="mt-40 min-h-screen w-[280px] fixed bg-black p-6 pr-0 text-gray-400 group">
+    <div className="mt-40 font-mono min-h-screen w-[280px] fixed bg-black p-6 pr-0 text-gray-400 group">
       {/* Custom scrollbar styles */}
       <style jsx global>{`
         /* Hide scrollbar by default */
