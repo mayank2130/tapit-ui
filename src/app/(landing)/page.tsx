@@ -10,7 +10,6 @@ import { Cards } from "@/components/custom/card-component";
 import Image from "next/image";
 import TabBar from "@/components/landing/tab-bar";
 import { motion } from "framer-motion";
-import { Spotlight } from "@/components/ui/SpotLight";
 
 const cards = [{ id: "finance", title: "Card Title", label: "Card Label" }];
 const cards2 = [{ id: "finance", title: "Card Title", label: "Card Label" }];
