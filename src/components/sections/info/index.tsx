@@ -1,5 +1,4 @@
 import { Compare } from "@/components/ui/compare";
-import { FeaturesSectionDemo } from "@/components/ui/feature-section";
 import { Section } from "@/components/ui/section";
 import React from "react";
 
