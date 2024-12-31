@@ -53,7 +53,7 @@ export default function Items() {
   return (
     <Section>
       <div className="mx-auto text-white flex max-w-container flex-col items-center gap-6 sm:gap-20">
-        <h2 className="max-w-[560px] text-center text-3xl font-semibold leading-tight sm:text-5xl sm:leading-tight">
+        <h2 className="max-w-[560px] text-center text-3xl font-semibold font-mono leading-tight sm:text-5xl sm:leading-tight">
           Everything you need. Nothing you don&apos;t.
         </h2>
         <div className="grid auto-rows-fr grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-3">
@@ -64,10 +64,10 @@ export default function Items() {
                   {item.icon}
                 </ItemIcon>
                 <div className="flex flex-col gap-2">
-                  <ItemTitle className="flex text-white tracking-normal items-center gap-2">
+                  <ItemTitle className="flex text-white  font-mono tracking-normal items-center gap-2">
                     {item.title}
                   </ItemTitle>
-                  <ItemDescription>{item.description}</ItemDescription>
+                  <ItemDescription className="tracking-normal font-mono">{item.description}</ItemDescription>
                 </div>
               </div>
             </Item>

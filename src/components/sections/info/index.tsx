@@ -8,11 +8,11 @@ const Info = () => {
     <Section className="flex flex-row items-center">
       <div className="relative z-20 max-w-7xl mx-auto">
         <div className="px-8">
-          <h4 className="text-3xl max-w-[560px] text-center lg:text-5xl lg:leading-tight mx-auto tracking-tight font-medium text-white">
+          <h4 className="text-3xl font-mono max-w-[560px] text-center lg:text-5xl lg:leading-tight mx-auto tracking-tight font-medium text-white">
             Impress with your designs not just product
           </h4>
 
-          <p className="text-sm lg:text-base  max-w-2xl  my-8 mx-auto text-center font-normal text-neutral-300">
+          <p className="text-sm lg:text-base font-mono  max-w-2xl  my-8 mx-auto text-center font-normal text-neutral-300">
             From sexy components to impressive transitions, TapUI has components
             for literally everything. We can even create this custom components on demand.
           </p>
