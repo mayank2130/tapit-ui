@@ -5,6 +5,9 @@ const nextConfig = {
       '.js': ['.js', '.ts', '.tsx']
     }
     return config
+  },
+  images: {
+    domains: ['images.unsplash.com','assets.aceternity.com']
   }
 }
 

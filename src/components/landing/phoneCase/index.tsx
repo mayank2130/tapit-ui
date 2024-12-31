@@ -22,7 +22,7 @@ const PhoneCase = () => {
         type: "spring",
         stiffness: 100,
       }}
-      className="mt-24"
+      className="mt-12"
     >
       <PhoneScreen className="h-[540px] w-[375px] md:h-[720px] md:w-[355px] border-black z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-400 to-gray-100 rounded-[30px]">
         <div className="ml-2 mt-5">
