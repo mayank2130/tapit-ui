@@ -58,7 +58,7 @@ export default function Items() {
           {itemsData.map((item, index) => (
             <Item key={index}>
               <div className="flex flex-row gap-6 items-center">
-                <ItemIcon className="bg-[#1B1B1B] rounded-full p-5 border-t border-[#] text-white">
+                <ItemIcon className="bg-[#1B1B1B] rounded-full p-5 border-t border-[#FFDB89] text-[#FFDB89]">
                   {item.icon}
                 </ItemIcon>
                 <div className="flex flex-col gap-2">
