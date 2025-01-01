@@ -31,7 +31,7 @@ const PhoneCase = () => {
             onChange={(tabId) => console.log("Selected:", tabId)}
           />
         </div>
-        <div className="flex mt-12 mx-2 flex-row w-full">
+        <div className="flex mt-12 flex-row w-full">
           <Cards
             className=" text-black"
             height="h-32 w-40"
@@ -45,14 +45,14 @@ const PhoneCase = () => {
             handleClick={() => router.push("/")}
           />
         </div>
-        <div className="mr-3">
+        <div className="mr-[1.1rem]">
           <Cards
-            className="text-black mx-2"
+            className="text-black"
             cards={cards2}
             handleClick={() => router.push("/")}
           />
           <Cards
-            className="text-black mx-2"
+            className="text-black"
             cards={cards2}
             height="h-44"
             handleClick={() => router.push("/")}
