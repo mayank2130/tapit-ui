@@ -5,6 +5,7 @@ import {
   FooterContent,
 } from "@/components/ui/footer";
 import LaunchUI from "../../logos/launch-ui";
+import Link from "next/link";
 
 export default function FooterSection() {
   return (
@@ -20,43 +21,43 @@ export default function FooterSection() {
             </FooterColumn>
             <FooterColumn>
               <h3 className="text-md pt-1 font-semibold text-white">Product</h3>
-              <a href="/" className="text-sm text-muted-foreground">
+              <Link href="/" className="text-sm text-muted-foreground">
                 Changelog
-              </a>
-              <a href="/" className="text-sm text-muted-foreground">
+              </Link>
+              <Link href="/" className="text-sm text-muted-foreground">
                 Documentation
-              </a>
+              </Link>
             </FooterColumn>
             <FooterColumn>
               <h3 className="text-md pt-1 font-semibold text-white">Company</h3>
-              <a href="/" className="text-sm text-muted-foreground">
+              <Link href="/" className="text-sm text-muted-foreground">
                 About
-              </a>
-              <a href="/" className="text-sm text-muted-foreground">
+              </Link>
+              <Link href="/" className="text-sm text-muted-foreground">
                 Careers
-              </a>
-              <a href="/" className="text-sm text-muted-foreground">
+              </Link>
+              <Link href="/" className="text-sm text-muted-foreground">
                 Blog
-              </a>
+              </Link>
             </FooterColumn>
             <FooterColumn>
               <h3 className="text-md pt-1 font-semibold text-white">Contact</h3>
-              <a href="/" className="text-sm text-muted-foreground">
+              <Link href="/" className="text-sm text-muted-foreground">
                 Discord
-              </a>
-              <a href="/" className="text-sm text-muted-foreground">
+              </Link>
+              <Link href="/" className="text-sm text-muted-foreground">
                 Twitter
-              </a>
-              <a href="/" className="text-sm text-muted-foreground">
+              </Link>
+              <Link href="/" className="text-sm text-muted-foreground">
                 Github
-              </a>
+              </Link>
             </FooterColumn>
           </FooterContent>
           <FooterBottom className="border-t border-[#FFDB89]">
             <div>© 2024 Mayank Thakur. All rights reserved</div>
             <div className="flex items-center gap-4">
-              <a href="/">Privacy Policy</a>
-              <a href="/">Terms of Service</a>
+              <Link href="/">Privacy Policy</Link>
+              <Link href="/">Terms of Service</Link>
             </div>
           </FooterBottom>
         </Footer>
