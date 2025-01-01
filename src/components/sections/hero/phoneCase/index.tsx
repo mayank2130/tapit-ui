@@ -5,8 +5,7 @@ import { tabsPreview } from "@/lib/utils";
 import { motion } from "framer-motion";
 import router from "next/router";
 import React from "react";
-import TabBar from "../tab-bar";
-
+import TabBar from "@/components/landing/tab-bar";
 
 const cards = [{ id: "finance", title: "Card Title", label: "Card Label" }];
 const cards2 = [{ id: "finance", title: "Card Title", label: "Card Label" }];
@@ -22,9 +21,9 @@ const PhoneCase = () => {
         type: "spring",
         stiffness: 100,
       }}
-      className="mt-12"
+      className="mt-12 border-[#FFDB89] border-4 z-10 rounded-[30px]"
     >
-      <PhoneScreen className="h-[540px] w-[375px] md:h-[720px] md:w-[355px] border-black z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-400 to-gray-100 rounded-[30px]">
+      <PhoneScreen className="h-[540px] w-[375px] md:h-[720px] md:w-[355px] z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-400 to-gray-100 rounded-[30px]">
         <div className="ml-2 mt-5">
           <TabsComponent
             tabs={tabsPreview}

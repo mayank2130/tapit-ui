@@ -6,7 +6,7 @@ import ShadcnUi from "@/components/logos/shadcn-ui";
 import Tailwind from "@/components/logos/tailwind";
 import TypeScript from "@/components/logos/typescript";
 import Logo from "@/components/ui/logo";
-import PhoneCase from "@/components/landing/phoneCase";
+import PhoneCase from "./phoneCase";
 import { Section } from "@/components/ui/section";
 
 const Hero = () => {
