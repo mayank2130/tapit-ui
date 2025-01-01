@@ -17,6 +17,24 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Tap UI",
   description: "Mobile UI Component Library",
+  icons: {
+    icon: [
+      {
+        url: "/css.svg", // Place your css.svg in the public folder
+        href: "/css.svg",
+        type: "image/png",
+        sizes: "32x32",
+      },
+    ],
+    shortcut: ["/css.svg"],
+    apple: [
+      {
+        url: "/css.svg",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
