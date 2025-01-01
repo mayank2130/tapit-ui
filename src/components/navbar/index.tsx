@@ -93,7 +93,7 @@ const Navbar = () => {
 
             {/* Search */}
             <div className="relative">
-              <div className="flex items-center bg-black border border-gray-600 rounded-lg px-3 py-1.5">
+              <div className="flex items-center bg-black border border-[#FFDB89] rounded-lg px-3 py-1.5">
                 <Search size={16} className="text-gray-400" />
                 <input
                   type="text"

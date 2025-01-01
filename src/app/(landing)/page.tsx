@@ -1,6 +1,8 @@
 "use client";
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import CTA from "@/components/sections/cta";
+import FooterSection from "@/components/sections/footer";
 import Hero from "@/components/sections/hero";
 import Info from "@/components/sections/info";
 import Items from "@/components/sections/items";
@@ -13,6 +15,8 @@ const Page = () => {
       <Items />
       <Info />
       <Qna />
+      <CTA />
+      <FooterSection />
     </MaxWidthWrapper>
   );
 };
